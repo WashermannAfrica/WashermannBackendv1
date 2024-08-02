@@ -34,10 +34,17 @@ class OrderController {
   }
 
   public async getOrderByTicketID(req: Request, res: Response): Promise<void> {
+    res.setHeader("Access-Control-Allow-Origin", "*")
+res.setHeader("Access-Control-Allow-Credentials", "true");
+res.setHeader("Access-Control-Max-Age", "1800");
+res.setHeader("Access-Control-Allow-Headers", "content-type");
+res.setHeader( "Access-Control-Allow-Methods", "PUT, POST, GET, DELETE, PATCH, OPTIONS" ); 
     try {
       const { ticketID } = req.params;
       const order = await this.orderService.getOrderByTicketID(ticketID);
       if (order) {
+        console.log(order);
+        
         res.status(200).json(order);
       } else {
         res.status(404).json({ error: 'Order not found' });

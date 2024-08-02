@@ -3,6 +3,7 @@ import { json, urlencoded } from 'body-parser';
 import dotenv from 'dotenv';
 import orderRoutes from './interfaces/http/orderRoutes';
 import mongoose from 'mongoose';
+import userRoutes from './interfaces/http/userRoutes';
 
 dotenv.config();
 
@@ -25,5 +26,6 @@ const connectDB = async () => {
 
 // Define routes
 app.use('/api/orders', orderRoutes);
+app.use('/api/users', userRoutes);
 
 export default app;

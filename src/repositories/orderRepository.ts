@@ -45,7 +45,11 @@ class OrderRepository implements IOrderRepository {
 
       
   async findByTicketID(ticketID: string): Promise<IOrder | null> {
-    return Order.findOne({ ticketID }).populate('user');
+    console.log(ticketID);
+    const foundTicket = Order.findOne({ ticketID }).populate('user');
+    console.log(foundTicket);
+    
+    return foundTicket
   }
 
     
