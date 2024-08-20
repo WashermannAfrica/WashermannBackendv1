@@ -11,6 +11,14 @@ class OrderController {
   }
 
   public async createOrder(req: Request, res: Response): Promise<void> {
+
+
+    res.setHeader("Access-Control-Allow-Origin", "*")
+res.setHeader("Access-Control-Allow-Credentials", "true");
+res.setHeader("Access-Control-Max-Age", "1800");
+res.setHeader("Access-Control-Allow-Headers", "content-type");
+res.setHeader( "Access-Control-Allow-Methods", "POST, GET, OPTIONS" ); 
+
     try {
         // Assuming the request body is already validated
 
@@ -38,7 +46,7 @@ class OrderController {
 res.setHeader("Access-Control-Allow-Credentials", "true");
 res.setHeader("Access-Control-Max-Age", "1800");
 res.setHeader("Access-Control-Allow-Headers", "content-type");
-res.setHeader( "Access-Control-Allow-Methods", "PUT, POST, GET, DELETE, PATCH, OPTIONS" ); 
+res.setHeader( "Access-Control-Allow-Methods", "POST, GET, OPTIONS" ); 
     try {
       const { ticketID } = req.params;
       const order = await this.orderService.getOrderByTicketID(ticketID);

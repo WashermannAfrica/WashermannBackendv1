@@ -11,6 +11,12 @@ class UserController {
   }
 
   public async getUserByPhoneNumber(req: Request, res: Response): Promise<void> {
+
+    res.setHeader("Access-Control-Allow-Origin", "*")
+res.setHeader("Access-Control-Allow-Credentials", "true");
+res.setHeader("Access-Control-Max-Age", "1800");
+res.setHeader("Access-Control-Allow-Headers", "content-type");
+res.setHeader( "Access-Control-Allow-Methods", "POST, GET, OPTIONS" ); 
     try {
       const phoneNumber = req.params.phoneNumber;
       const user = await this.userService.fetchUserByPhoneNumber(phoneNumber);

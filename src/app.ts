@@ -8,6 +8,13 @@ import userRoutes from './interfaces/http/userRoutes';
 dotenv.config();
 
 const app: Application = express();
+const cors = require('cors');
+
+app.use(cors({
+  origin: 'http://localhost:3000', // Replace with your frontend origin
+  methods: 'GET, POST, PUT, DELETE',
+  allowedHeaders: ['Content-Type', 'Authorization'],
+}));
 
 app.use(json());
 app.use(urlencoded({ extended: true }));

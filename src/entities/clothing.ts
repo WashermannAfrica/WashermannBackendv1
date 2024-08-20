@@ -2,7 +2,7 @@
 
 export enum Tops {
     SHIRT = 'Shirt',
-    POLOS = 'Polos',
+    POLOS = 'Polo',
   }
   
   export enum Downs {
@@ -12,19 +12,19 @@ export enum Tops {
     GOWNS = 'Gowns',
   }
   
-  export enum Special {
+  export enum Specials {
     TWO_PIECE_SUIT = '2-piece suit',
     THREE_PIECE_SUIT = '3-piece suit',
     JACKET = 'Jacket',
     NATIVE = 'Native',
     AGBADA = 'Agbada',
-    SWEATERS_HOODIES = 'Sweaters/Hoodies',
+    SWEATERS_HOODIES = 'Hoodie',
   }
   
   // Mapping category names to their respective clothe types
   export const ClothingCategories = {
     Tops: Tops,
     Downs: Downs,
-    Special: Special,
+    Specials: Specials,
   };
   

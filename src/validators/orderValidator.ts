@@ -1,7 +1,7 @@
 // src/validators/orderValidator.ts
 
 import { body, check } from 'express-validator';
-import { Downs, Special, Tops } from '../entities/clothing';
+import { Downs, Specials, Tops } from '../entities/clothing';
 
 export const createOrderValidationRules = () => [
   // Validate User Information
@@ -56,8 +56,8 @@ export const createOrderValidationRules = () => [
     .withMessage('hasWhite must be a boolean'),
 
     check('categories.*.name')
-    .isIn(['Tops', 'Downs', 'Special'])
-    .withMessage('Category name must be one of Tops, Downs, or Special'),
+    .isIn(['Tops', 'Downs', 'Specials'])
+    .withMessage('Category name must be one of Tops, Downs, or Specials'),
 
   body('categories.*.clothes')
     .isArray({ min: 1 })
@@ -84,9 +84,9 @@ export const createOrderValidationRules = () => [
               throw new Error(`Invalid clothe type for Downs. Must be one of ${Object.values(Downs).join(', ')}`);
             }
             break;
-          case 'Special':
-            if (!Object.values(Special).includes(value as Special)) {
-              throw new Error(`Invalid clothe type for Special. Must be one of ${Object.values(Special).join(', ')}`);
+          case 'Specials':
+            if (!Object.values(Specials).includes(value as Specials)) {
+              throw new Error(`Invalid clothe type for Special. Must be one of ${Object.values(Specials).join(', ')}`);
             }
             break;
           default:
