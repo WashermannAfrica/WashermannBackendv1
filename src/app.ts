@@ -11,7 +11,7 @@ const app: Application = express();
 const cors = require('cors');
 
 app.use(cors({
-  origin: 'http://localhost:3000', // Replace with your frontend origin
+  origin: 'https://washermann.com', // Replace with your frontend origin
   methods: 'GET, POST, PUT, DELETE',
   allowedHeaders: ['Content-Type', 'Authorization'],
 }));
